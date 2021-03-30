@@ -73,11 +73,12 @@ window.addEventListener('load', () => {
 
                     switch (pod) {
                         case 'd':
-                            document.body.style.backgroundImage = 'linear-gradient(190deg, rgb(109 159 241), rgb(3 13 70));';
+                            document.body.style.backgroundImage = "linear-gradient(190deg, rgb(109,159,241), rgb(3, 13, 70))";
                             break;
 
                         case 'n':
-                            document.body.style.backgroundImage = 'linear-gradient(190deg, rgb(4 58 146), rgb(4 8 31))';
+                            document.body.style.backgroundImage =
+                                'linear-gradient(190deg, rgb(4, 58, 146), rgb(4, 8, 31))';
                             break;
                     }
                 })
