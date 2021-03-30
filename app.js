@@ -48,9 +48,10 @@ window.addEventListener('load', () => {
                     .then(value => value.json())
                 ])
                 .then((value) => {
-                    console.log(value[0]);
-                    const { temp, city_name, pod } = value[0].data[0];
+                    console.log(value[1]);
+                    const { temp, pod } = value[0].data[0];
                     const { description, icon } = value[0].data[0].weather;
+                    const { city_name } = value[1];
                     const { aqi, pm25, pm10, o3, no2, so2, co, predominant_pollen_type, pollen_level_tree, pollen_level_grass, pollen_level_weed, mold_level } = value[1].data[0];
 
                     temperatureDegree.textContent = temp;
@@ -69,6 +70,145 @@ window.addEventListener('load', () => {
                     grass.textContent = pollen_level_grass;
                     weed.textContent = pollen_level_weed;
                     mold.textContent = mold_level;
+
+                    // AQI parameters
+                    if (aqi <= 50) {
+                        airQuality.style.color = "#01e800";
+                    } else if (aqi >= 51 && aqi <= 100) {
+                        airQuality.style.color = "#ffff00";
+                    } else if (aqi >= 101 && aqi <= 150) {
+                        airQuality.style.color = "#ff8a00";
+                    } else if (aqi >= 151 && aqi <= 200) {
+                        airQuality.style.color = "#ff0500";
+                    } else if (aqi >= 201 && aqi <= 300) {
+                        airQuality.style.color = "#9a48a1";
+                    } else if (aqi > 301) {
+                        airQuality.style.color = "#890127";
+                    }
+                    // PM2.5
+                    if (pm25 <= 30) {
+                        airPm25.style.color = "#01e800";
+                    } else if (pm25 >= 31 && pm25 <= 60) {
+                        airPm25.style.color = "#ffff00";
+                    } else if (pm25 >= 61 && pm25 <= 90) {
+                        airPm25.style.color = "#ff8a00";
+                    } else if (pm25 >= 91 && pm25 <= 120) {
+                        airPm25.style.color = "#ff0500";
+                    } else if (pm25 >= 121 && pm25 <= 250) {
+                        airPm25.style.color = "#9a48a1";
+                    } else if (pm25 > 250) {
+                        airPm25.style.color = "#890127";
+                    }
+                    //PM1.0
+                    if (pm10 <= 50) {
+                        airPm10.style.color = "#01e800";
+                    } else if (pm10 >= 51 && pm10 <= 100) {
+                        airPm10.style.color = "#ffff00";
+                    } else if (pm10 >= 101 && pm10 <= 250) {
+                        airPm10.style.color = "#ff8a00";
+                    } else if (pm10 >= 251 && pm10 <= 350) {
+                        airPm10.style.color = "#ff0500";
+                    } else if (pm10 >= 351 && pm10 <= 430) {
+                        airPm10.style.color = "#9a48a1";
+                    } else if (pm10 > 430) {
+                        airPm10.style.color = "#890127";
+                    }
+                    // NO2
+                    if (no2 <= 40) {
+                        airNo2.style.color = "#01e800";
+                    } else if (no2 >= 41 && no2 <= 80) {
+                        airNo2.style.color = "#ffff00";
+                    } else if (no2 >= 81 && no2 <= 180) {
+                        airNo2.style.color = "#ff8a00";
+                    } else if (no2 >= 181 && no2 <= 280) {
+                        airNo2.style.color = "#ff0500";
+                    } else if (no2 >= 281 && no2 <= 400) {
+                        airNo2.style.color = "#9a48a1";
+                    } else if (no2 > 400) {
+                        airNo2.style.color = "#890127";
+                    }
+                    //O3
+                    if (o3 <= 50) {
+                        airO3.style.color = "#01e800";
+                    } else if (o3 >= 51 && o3 <= 100) {
+                        airO3.style.color = "#ffff00";
+                    } else if (o3 >= 101 && o3 <= 168) {
+                        airO3.style.color = "#ff8a00";
+                    } else if (o3 >= 169 && o3 <= 208) {
+                        airO3.style.color = "#ff0500";
+                    } else if (o3 >= 209 && o3 <= 748) {
+                        airO3.style.color = "#9a48a1";
+                    } else if (o3 > 748) {
+                        airO3.style.color = "#890127";
+                    }
+                    //CO
+                    if (co <= 50) {
+                        airCo.style.color = "#01e800";
+                    } else if (co >= 51 && co <= 200) {
+                        airCo.style.color = "#ffff00";
+                    } else if (co >= 201 && co <= 400) {
+                        airCo.style.color = "#ff8a00";
+                    } else if (co >= 401 && co <= 800) {
+                        airCo.style.color = "#ff0500";
+                    } else if (co >= 801 && co <= 6400) {
+                        airCo.style.color = "#9a48a1";
+                    } else if (co > 6400) {
+                        airCo.style.color = "#890127";
+                    }
+                    // SO2
+                    if (so2 <= 40) {
+                        airSo2.style.color = "#01e800";
+                    } else if (co >= 41 && co <= 80) {
+                        airSo2.style.color = "#ffff00";
+                    } else if (co >= 81 && co <= 380) {
+                        airSo2.style.color = "#ff8a00";
+                    } else if (co >= 381 && co <= 800) {
+                        airSo2.style.color = "#ff0500";
+                    } else if (co >= 801 && co <= 1600) {
+                        airSo2.style.color = "#9a48a1";
+                    } else if (co > 1600) {
+                        airSo2.style.color = "#890127";
+                    }
+                    // Pollen tree
+                    if (pollen_level_tree == 1) {
+                        tree.style.color = "#01e800";
+                    } else if (pollen_level_tree == 2) {
+                        tree.style.color = "#ffff00";
+                    } else if (pollen_level_tree == 3) {
+                        tree.style.color = "#ff8a00";
+                    } else if (pollen_level_tree == 4) {
+                        tree.style.color = "#ff0500";
+                    }
+                    // Pollen weed
+                    if (pollen_level_weed == 1) {
+                        weed.style.color = "#01e800";
+                    } else if (pollen_level_weed == 2) {
+                        weed.style.color = "#ffff00";
+                    } else if (pollen_level_weed == 3) {
+                        weed.style.color = "#ff8a00";
+                    } else if (pollen_level_weed == 4) {
+                        weed.style.color = "#ff0500";
+                    }
+                    // Pollen grass
+                    if (pollen_level_grass == 1) {
+                        grass.style.color = "#01e800";
+                    } else if (pollen_level_grass == 2) {
+                        grass.style.color = "#ffff00";
+                    } else if (pollen_level_grass == 3) {
+                        grass.style.color = "#ff8a00";
+                    } else if (pollen_level_grass == 4) {
+                        grass.style.color = "#ff0500";
+                    }
+                    // Pollen mold
+                    if (mold_level == 1) {
+                        mold.style.color = "#01e800";
+                    } else if (mold_level == 2) {
+                        mold.style.color = "#ffff00";
+                    } else if (mold_level == 3) {
+                        mold.style.color = "#ff8a00";
+                    } else if (mold_level == 4) {
+                        mold.style.color = "#ff0500";
+                    }
 
 
                     switch (pod) {
