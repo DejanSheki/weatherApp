@@ -16,7 +16,6 @@ window.addEventListener('load', () => {
             let airO3 = document.querySelector('.o3');
             let airNo2 = document.querySelector('.no2');
             let airSo2 = document.querySelector('.so2');
-            let airCo = document.querySelector('.co');
             let predominant = document.querySelector('.predominant');
             let tree = document.querySelector('.tree');
             let grass = document.querySelector('.grass');
@@ -52,7 +51,7 @@ window.addEventListener('load', () => {
                     const { temp, pod } = value[0].data[0];
                     const { description, icon } = value[0].data[0].weather;
                     const { city_name } = value[1];
-                    const { aqi, pm25, pm10, o3, no2, so2, co, predominant_pollen_type, pollen_level_tree, pollen_level_grass, pollen_level_weed, mold_level } = value[1].data[0];
+                    const { aqi, pm25, pm10, o3, no2, so2, predominant_pollen_type, pollen_level_tree, pollen_level_grass, pollen_level_weed, mold_level } = value[1].data[0];
 
                     temperatureDegree.textContent = temp;
                     cityName.textContent = city_name;
@@ -64,7 +63,6 @@ window.addEventListener('load', () => {
                     airO3.textContent = o3.toFixed(2);
                     airNo2.textContent = no2.toFixed(2);
                     airSo2.textContent = so2.toFixed(2);
-                    airCo.textContent = co.toFixed(2);
                     predominant.textContent = predominant_pollen_type;
                     tree.textContent = pollen_level_tree;
                     grass.textContent = pollen_level_grass;
@@ -141,20 +139,7 @@ window.addEventListener('load', () => {
                     } else if (o3 > 748) {
                         airO3.style.color = "#890127";
                     }
-                    //CO
-                    if (co <= 50) {
-                        airCo.style.color = "#01e800";
-                    } else if (co >= 51 && co <= 200) {
-                        airCo.style.color = "#ffff00";
-                    } else if (co >= 201 && co <= 400) {
-                        airCo.style.color = "#ff8a00";
-                    } else if (co >= 401 && co <= 800) {
-                        airCo.style.color = "#ff0500";
-                    } else if (co >= 801 && co <= 6400) {
-                        airCo.style.color = "#9a48a1";
-                    } else if (co > 6400) {
-                        airCo.style.color = "#890127";
-                    }
+
                     // SO2
                     if (so2 <= 40) {
                         airSo2.style.color = "#01e800";
