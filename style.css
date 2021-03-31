@@ -22,8 +22,10 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background: rgba(37, 34, 56, 0.5);
+    /* background: rgba(37, 34, 56, 0.5); */
+    background: linear-gradient(195deg, rgba(9, 8, 13, 0.1), rgba(37, 34, 56, 0.5));
     padding: 10px 0 10px 10px;
+    box-shadow: -5px 3px 5px #0a0a0b;
 }
 
 .location-timezone {
@@ -85,11 +87,12 @@ em {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(37, 34, 56, 0.5);
+    background: rgba(9, 8, 13, 0.5);
     width: 80%;
     padding: 20px;
     margin: 5px;
     flex: 0 0 30%;
+    box-shadow: -7px 9px 10px #000;
 }
 
 .pollen-levels .level-box {
@@ -130,6 +133,37 @@ em {
     }
     .degree-section h2 {
         font-size: 25px;
+    }
+    .icon {
+        flex: 0 0 20%;
+    }
+}
+
+@media (max-width: 360px) {
+    .degree-section span {
+        margin: 5px;
+        font-size: 15px;
+    }
+    .degree-section h2 {
+        font-size: 20px;
+    }
+    .temperature-description {
+        font-size: 10px;
+    }
+    .location-timezone {
+        font-size: 15px;
+    }
+    .degree-section h2 {
+        font-size: 15px;
+    }
+    .air h2 {
+        font-size: 20px;
+    }
+    .level-box {
+        padding: 10px;
+    }
+    .level-box span {
+        font-size: 12px;
     }
     .icon {
         flex: 0 0 20%;
