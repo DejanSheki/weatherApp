@@ -12,34 +12,58 @@
 <body>
     <div class="location">
         <h1 class="location-timezone"></h1>
+        <div class="temperature">
+            <div class="degree-section">
+                <h2 class="temperature-degree"></h2>
+                <span>&#8451;</span>
+            </div>
+            <div class="temperature-description"></div>
+        </div>
         <p class="icon">Icon</p>
     </div>
 
-    <div class="temperature">
-        <div class="degree-section">
-            <h2 class="temperature-degree"></h2>
-            <span>&#8451;</span>
-        </div>
-        <div class="temperature-description"></div>
-    </div>
+
 
     <div class="air">
-        <div class="polution">
+        <div class="air-quality">
             <h2>Air Quality</h2>
-            <p>AQI <em>[US - EPA standard] :</em><span class="aqi"></span></p>
-            <p>PM 2.5: <span class="pm25"></span></p>
-            <p>PM 10: <span class="pm10"></span></p>
-            <p>O3: <span class="o3"></span></p>
-            <p>NO2: <span class="no2"></span></p>
-            <p>SO2: <span class="so2"></span></p>
+            <div class="polution">
+                <div class="level-box">
+                    <p>AQI</p><span class="aqi"></span><em>[US-EPA]</em>
+                </div>
+                <div class="level-box">
+                    <p>PM 2.5</p><span class="pm25"></span>
+                </div>
+                <div class="level-box">
+                    <p>PM 10</p><span class="pm10"></span>
+                </div>
+                <div class="level-box">
+                    <p>O3</p><span class="o3"></span>
+                </div>
+                <div class="level-box">
+                    <p>NO2</p><span class="no2"></span>
+                </div>
+                <div class="level-box">
+                    <p>SO2</p><span class="so2"></span>
+                </div>
+            </div>
         </div>
-        <div class="pollen">
+        <div class="pollen-levels">
             <h2>Pollen Levels</h2>
-            <p>Predominant pollen type :<span class="predominant"></span></p>
-            <p>Tree pollen level: <span class="tree"></span></p>
-            <p>Grass pollen level: <span class="grass"></span></p>
-            <p>Weed pollen level: <span class="weed"></span></p>
-            <p>Mold pollen level: <span class="mold"></span></p>
+            <div class="pollen">
+                <div class="level-box">
+                    <p>Tree</p><span class="tree"></span>
+                </div>
+                <div class="level-box">
+                    <p>Grass</p><span class="grass"></span>
+                </div>
+                <div class="level-box">
+                    <p>Weed</p><span class="weed"></span>
+                </div>
+                <div class="level-box">
+                    <p>Mold</p><span class="mold"></span>
+                </div>
+            </div>
         </div>
     </div>
     <script src="app.js"></script>

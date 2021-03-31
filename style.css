@@ -5,7 +5,6 @@
 }
 
 body {
-    height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -14,14 +13,21 @@ body {
     color: rgb(235, 255, 244);
     letter-spacing: 1px;
     padding: 15px;
+    background: linear-gradient(190deg, rgb(109, 159, 241), rgb(3, 13, 70));
+    height: 100vh;
 }
 
 .location {
-    height: 15vh;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    background: rgba(37, 34, 56, 0.5);
+    padding: 10px 0 10px 10px;
+}
+
+.location-timezone {
+    font-size: 45px;
 }
 
 .degree-section {
@@ -48,33 +54,84 @@ body {
     display: flex;
     justify-content: space-around;
     width: 100%;
+    margin-top: 30px;
 }
 
 .polution,
 .pollen {
     display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-    line-height: 1.3;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.polution em,
-.pollen em {
-    font-size: 12px;
+em {
+    font-size: 10px;
 }
 
 .air h2 {
-    margin-left: 10px;
+    text-align: center;
+    margin: 10px 0px;
 }
 
-.polution span,
-.pollen span {
-    margin-left: 10px;
-    font-size: 19px;
+.air-quality,
+.pollen-levels {
+    flex: 0 0 45%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.level-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(37, 34, 56, 0.5);
+    width: 80%;
+    padding: 20px;
+    margin: 5px;
+    flex: 0 0 30%;
+}
+
+.pollen-levels .level-box {
+    flex: 0 0 20%;
+}
+
+.level-box span {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .air {
+        flex-direction: column;
+    }
+    .location-timezone {
+        font-size: 30px;
+    }
+    .icon img {
+        width: 80%;
+    }
 }
 
 @media (max-width: 480px) {
-    .air {
-        flex-direction: column;
+    .degree-section span {
+        margin: 5px;
+        font-size: 20px;
+    }
+    .degree-section h2 {
+        font-size: 30px;
+    }
+    .temperature-description {
+        font-size: 12px;
+    }
+    .location-timezone {
+        font-size: 20px;
+    }
+    .degree-section h2 {
+        font-size: 25px;
+    }
+    .icon {
+        flex: 0 0 20%;
     }
 }

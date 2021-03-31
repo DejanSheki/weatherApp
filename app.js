@@ -16,7 +16,6 @@ window.addEventListener('load', () => {
             let airO3 = document.querySelector('.o3');
             let airNo2 = document.querySelector('.no2');
             let airSo2 = document.querySelector('.so2');
-            let predominant = document.querySelector('.predominant');
             let tree = document.querySelector('.tree');
             let grass = document.querySelector('.grass');
             let weed = document.querySelector('.weed');
@@ -25,6 +24,8 @@ window.addEventListener('load', () => {
             // const proxy = 'https://cors-anywhere.herokuapp.com'
             const apiWeather = `https://weatherbit-v1-mashape.p.rapidapi.com/current?lat=${lat}&lon=${long}`;
             const apiAirQuality = `https://air-quality.p.rapidapi.com/current/airquality?lon=${long}&lat=${lat}`;
+
+
 
 
             Promise.all([
@@ -47,11 +48,11 @@ window.addEventListener('load', () => {
                     .then(value => value.json())
                 ])
                 .then((value) => {
-                    console.log(value[1]);
+                    console.log(value);
                     const { temp, pod } = value[0].data[0];
                     const { description, icon } = value[0].data[0].weather;
                     const { city_name } = value[1];
-                    const { aqi, pm25, pm10, o3, no2, so2, predominant_pollen_type, pollen_level_tree, pollen_level_grass, pollen_level_weed, mold_level } = value[1].data[0];
+                    const { aqi, pm25, pm10, o3, no2, so2, pollen_level_tree, pollen_level_grass, pollen_level_weed, mold_level } = value[1].data[0];
 
                     temperatureDegree.textContent = temp;
                     cityName.textContent = city_name;
@@ -63,7 +64,6 @@ window.addEventListener('load', () => {
                     airO3.textContent = o3.toFixed(2);
                     airNo2.textContent = no2.toFixed(2);
                     airSo2.textContent = so2.toFixed(2);
-                    predominant.textContent = predominant_pollen_type;
                     tree.textContent = pollen_level_tree;
                     grass.textContent = pollen_level_grass;
                     weed.textContent = pollen_level_weed;
