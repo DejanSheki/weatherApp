@@ -142,15 +142,15 @@ window.addEventListener('load', () => {
                     // SO2
                     if (so2 <= 40) {
                         airSo2.style.color = "#01e800";
-                    } else if (co >= 41 || co <= 80) {
+                    } else if (so2 >= 41 || so2 <= 80) {
                         airSo2.style.color = "#ffff00";
-                    } else if (co >= 81 || co <= 380) {
+                    } else if (so2 >= 81 || so2 <= 380) {
                         airSo2.style.color = "#ff8a00";
-                    } else if (co >= 381 || co <= 800) {
+                    } else if (so2 >= 381 || so2 <= 800) {
                         airSo2.style.color = "#ff0500";
-                    } else if (co >= 801 || co <= 1600) {
+                    } else if (so2 >= 801 || so2 <= 1600) {
                         airSo2.style.color = "#9a48a1";
-                    } else if (co > 1600) {
+                    } else if (so2 > 1600) {
                         airSo2.style.color = "#890127";
                     }
                     // Pollen tree
