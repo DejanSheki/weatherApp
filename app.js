@@ -29,24 +29,24 @@ window.addEventListener('load', () => {
 
 
             Promise.all([
-                    fetch(apiWeather, {
-                        "method": "GET",
-                        "headers": {
-                            "x-rapidapi-key": "00a36c815amshe6c56b94c38c7a2p19bd28jsn1f3f126b68e4",
-                            "x-rapidapi-host": "weatherbit-v1-mashape.p.rapidapi.com"
-                        }
-                    })
+                fetch(apiWeather, {
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-key": "00a36c815amshe6c56b94c38c7a2p19bd28jsn1f3f126b68e4",
+                        "x-rapidapi-host": "weatherbit-v1-mashape.p.rapidapi.com"
+                    }
+                })
                     .then(value => value.json()),
 
-                    fetch(apiAirQuality, {
-                        "method": "GET",
-                        "headers": {
-                            "x-rapidapi-key": "00a36c815amshe6c56b94c38c7a2p19bd28jsn1f3f126b68e4",
-                            "x-rapidapi-host": "air-quality.p.rapidapi.com"
-                        }
-                    })
+                fetch(apiAirQuality, {
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-key": "00a36c815amshe6c56b94c38c7a2p19bd28jsn1f3f126b68e4",
+                        "x-rapidapi-host": "air-quality.p.rapidapi.com"
+                    }
+                })
                     .then(value => value.json())
-                ])
+            ])
                 .then((value) => {
                     const { temp, pod } = value[0].data[0];
                     const { description, icon } = value[0].data[0].weather;
@@ -69,15 +69,16 @@ window.addEventListener('load', () => {
                     mold.textContent = mold_level;
 
                     // AQI parameters
+                    console.log(aqi);
                     if (aqi <= 50) {
                         airQuality.style.color = "#01e800";
-                    } else if (aqi >= 51 || aqi <= 100) {
+                    } else if (aqi >= 51 && aqi <= 100) {
                         airQuality.style.color = "#ffff00";
-                    } else if (aqi >= 101 || aqi <= 150) {
+                    } else if (aqi >= 101 && aqi <= 150) {
                         airQuality.style.color = "#ff8a00";
-                    } else if (aqi >= 151 || aqi <= 200) {
+                    } else if (aqi >= 151 && aqi <= 200) {
                         airQuality.style.color = "#ff0500";
-                    } else if (aqi >= 201 || aqi <= 300) {
+                    } else if (aqi >= 201 && aqi <= 300) {
                         airQuality.style.color = "#9a48a1";
                     } else if (aqi > 301) {
                         airQuality.style.color = "#890127";
@@ -85,13 +86,13 @@ window.addEventListener('load', () => {
                     // PM2.5
                     if (pm25 <= 30) {
                         airPm25.style.color = "#01e800";
-                    } else if (pm25 >= 31 || pm25 <= 60) {
+                    } else if (pm25 >= 31 && pm25 <= 60) {
                         airPm25.style.color = "#ffff00";
-                    } else if (pm25 >= 61 || pm25 <= 90) {
+                    } else if (pm25 >= 61 && pm25 <= 90) {
                         airPm25.style.color = "#ff8a00";
-                    } else if (pm25 >= 91 || pm25 <= 120) {
+                    } else if (pm25 >= 91 && pm25 <= 120) {
                         airPm25.style.color = "#ff0500";
-                    } else if (pm25 >= 121 || pm25 <= 250) {
+                    } else if (pm25 >= 121 && pm25 <= 250) {
                         airPm25.style.color = "#9a48a1";
                     } else if (pm25 > 250) {
                         airPm25.style.color = "#890127";
@@ -99,13 +100,13 @@ window.addEventListener('load', () => {
                     //PM1.0
                     if (pm10 <= 50) {
                         airPm10.style.color = "#01e800";
-                    } else if (pm10 >= 51 || pm10 <= 100) {
+                    } else if (pm10 >= 51 && pm10 <= 100) {
                         airPm10.style.color = "#ffff00";
-                    } else if (pm10 >= 101 || pm10 <= 250) {
+                    } else if (pm10 >= 101 && pm10 <= 250) {
                         airPm10.style.color = "#ff8a00";
-                    } else if (pm10 >= 251 || pm10 <= 350) {
+                    } else if (pm10 >= 251 && pm10 <= 350) {
                         airPm10.style.color = "#ff0500";
-                    } else if (pm10 >= 351 || pm10 <= 430) {
+                    } else if (pm10 >= 351 && pm10 <= 430) {
                         airPm10.style.color = "#9a48a1";
                     } else if (pm10 > 430) {
                         airPm10.style.color = "#890127";
@@ -113,13 +114,13 @@ window.addEventListener('load', () => {
                     // NO2
                     if (no2 <= 40) {
                         airNo2.style.color = "#01e800";
-                    } else if (no2 >= 41 || no2 <= 80) {
+                    } else if (no2 >= 41 && no2 <= 80) {
                         airNo2.style.color = "#ffff00";
-                    } else if (no2 >= 81 || no2 <= 180) {
+                    } else if (no2 >= 81 && no2 <= 180) {
                         airNo2.style.color = "#ff8a00";
-                    } else if (no2 >= 181 || no2 <= 280) {
+                    } else if (no2 >= 181 && no2 <= 280) {
                         airNo2.style.color = "#ff0500";
-                    } else if (no2 >= 281 || no2 <= 400) {
+                    } else if (no2 >= 281 && no2 <= 400) {
                         airNo2.style.color = "#9a48a1";
                     } else if (no2 > 400) {
                         airNo2.style.color = "#890127";
@@ -127,13 +128,13 @@ window.addEventListener('load', () => {
                     //O3
                     if (o3 <= 50) {
                         airO3.style.color = "#01e800";
-                    } else if (o3 >= 51 || o3 <= 100) {
+                    } else if (o3 >= 51 && o3 <= 100) {
                         airO3.style.color = "#ffff00";
-                    } else if (o3 >= 101 || o3 <= 168) {
+                    } else if (o3 >= 101 && o3 <= 168) {
                         airO3.style.color = "#ff8a00";
-                    } else if (o3 >= 169 || o3 <= 208) {
+                    } else if (o3 >= 169 && o3 <= 208) {
                         airO3.style.color = "#ff0500";
-                    } else if (o3 >= 209 || o3 <= 748) {
+                    } else if (o3 >= 209 && o3 <= 748) {
                         airO3.style.color = "#9a48a1";
                     } else if (o3 > 748) {
                         airO3.style.color = "#890127";
@@ -142,13 +143,13 @@ window.addEventListener('load', () => {
                     // SO2
                     if (so2 <= 40) {
                         airSo2.style.color = "#01e800";
-                    } else if (so2 >= 41 || so2 <= 80) {
+                    } else if (so2 >= 41 && so2 <= 80) {
                         airSo2.style.color = "#ffff00";
-                    } else if (so2 >= 81 || so2 <= 380) {
+                    } else if (so2 >= 81 && so2 <= 380) {
                         airSo2.style.color = "#ff8a00";
-                    } else if (so2 >= 381 || so2 <= 800) {
+                    } else if (so2 >= 381 && so2 <= 800) {
                         airSo2.style.color = "#ff0500";
-                    } else if (so2 >= 801 || so2 <= 1600) {
+                    } else if (so2 >= 801 && so2 <= 1600) {
                         airSo2.style.color = "#9a48a1";
                     } else if (so2 > 1600) {
                         airSo2.style.color = "#890127";
@@ -207,9 +208,9 @@ window.addEventListener('load', () => {
                     }
                 })
 
-            .catch(err => {
-                console.error(err);
-            });
+                .catch(err => {
+                    console.error(err);
+                });
         });
     }
 
