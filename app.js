@@ -51,8 +51,8 @@ window.addEventListener('load', () => {
                 console.log(value);
                     const { temp, pod } = value[0].data[0];
                     const { description, icon } = value[0].data[0].weather;
-                    const { city_name } = value[1];
-                    const { aqi, pm25, pm10, o3, no2, so2, pollen_level_tree, pollen_level_grass, pollen_level_weed, mold_level } = value[1].data[0];
+                    const { city_name } = value[0];
+                    const { aqi, pm25, pm10, o3, no2, so2, pollen_level_tree, pollen_level_grass, pollen_level_weed, mold_level } = value[0].data[0];
 
                     temperatureDegree.textContent = temp;
                     cityName.textContent = city_name;
