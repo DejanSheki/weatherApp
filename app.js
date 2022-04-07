@@ -48,6 +48,7 @@ window.addEventListener('load', () => {
                     .then(value => value.json())
             ])
                 .then((value) => {
+                console.log(value);
                     const { temp, pod } = value[0].data[0];
                     const { description, icon } = value[0].data[0].weather;
                     const { city_name } = value[1];
