@@ -48,7 +48,7 @@ window.addEventListener('load', () => {
                     .then(value => value.json())
             ])
                 .then((value) => {
-                console.log(value[1]);
+                    console.log(value[1]);
                     const { temp, pod } = value[0].data[0];
                     const { description, icon } = value[0].data[0].weather;
                     const { city_name } = value[0];
@@ -56,7 +56,7 @@ window.addEventListener('load', () => {
 
                     temperatureDegree.textContent = temp;
                     cityName.textContent = city_name;
-                    console.log(cityName)
+                    console.log(cityName);
                     temperatureDescription.textContent = description;
                     iconDescription.innerHTML = `<img src=" https://www.weatherbit.io/static/img/icons/${icon}.png" alt="Weather">`;
                     airQuality.textContent = aqi;
