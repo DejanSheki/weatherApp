@@ -60,7 +60,7 @@ window.addEventListener('load', () => {
                     temperatureDescription.textContent = description;
                     iconDescription.innerHTML = `<img src=" https://www.weatherbit.io/static/img/icons/${icon}.png" alt="Weather">`;
                     airQuality.textContent = aqi;
-                    airPm25.textContent = pm25.toFixed(2);
+                    airPm25.textContent = pm25;
                     airPm10.textContent = pm10.toFixed(2);
                     airO3.textContent = o3.toFixed(2);
                     airNo2.textContent = no2.toFixed(2);
